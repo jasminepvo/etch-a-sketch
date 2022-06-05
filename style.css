@@ -1,0 +1,69 @@
+/* Custom properties/variables */
+:root {
+    --main-red: #e51823;
+    --main-gold: #eaca90;
+    --main-white: #fbfcf6;
+    --main--grey: #d4d6d3;
+}
+
+@font-face {
+    src: url(rondo/rondo.ttf);
+    font-family: rondo;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+.device {
+    background-color: var(--main-red);
+    border-radius: 15px;
+    height: 500px;
+    width: 800px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    font-family: rondo;
+    text-align: center;
+    color: var(--main-gold);
+    padding: 1px;
+}
+
+.gridContainer {
+    background-color: var(--main--grey);
+    border-color: var(--main--grey);
+    border-style: solid;
+    border-radius: 25px;
+    height: 300px;
+    width: 600px;    
+    padding: 10px;
+}
+
+.controlsContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.leftControl, .rightControl {
+    background-color: var(--main-white);
+    border-radius: 45px;
+    height: 90px;
+    width: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+/* device is 800px - 90px*2 each control - 5px*2 outermargin = 610 so /2 = 305px margin in between */
+.leftControl {
+    margin-right:305px;
+}
+
+.rightControl {
+    margin-left: 305px;
+}
