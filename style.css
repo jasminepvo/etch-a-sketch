@@ -1,69 +1,185 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 /* Custom properties/variables */
 :root {
-    --main-red: #e51823;
-    --main-gold: #eaca90;
-    --main-white: #fbfcf6;
-    --main--grey: #d4d6d3;
+  --main-red: #e51823;
+  --main-gold: #eaca90;
+  --main-white: #fbfcf6;
+  --main--grey: #d4d6d3;
 }
 
 @font-face {
-    src: url(rondo/rondo.ttf);
-    font-family: rondo;
+  src: url(rondo/rondo.ttf);
+  font-family: rondo;
 }
 
 body {
-    background-color: whitesmoke;
+  background-color: whitesmoke;
+  color: var(--main-red);
+  font-family: rondo;
 }
 
-.device {
-    background-color: var(--main-red);
-    border-radius: 15px;
-    height: 500px;
-    width: 800px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.etch-a-sketch-device {
+  background-color: var(--main-red);
+  border-radius: 15px;
+  height: 500px;
+  width: 800px;
+  margin: auto;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.header {
-    font-family: rondo;
-    text-align: center;
-    color: var(--main-gold);
-    padding: 1px;
+.device-name {
+  font-family: rondo;
+  font-size: 60px;
+  text-align: center;
+  color: var(--main-gold);
+  padding: 1px;
 }
 
-.gridContainer {
-    background-color: var(--main--grey);
-    border-color: var(--main--grey);
-    border-style: solid;
-    border-radius: 25px;
-    height: 300px;
-    width: 600px;    
-    padding: 10px;
+.grid-container {
+  background-color: var(--main--grey);
+  border-radius: 20px;
+  height: 300px;
+  width: 600px;
+  box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.5);
 }
 
-.controlsContainer {
-    display: flex;
-    flex-direction: row;
+.sketch-grid {
+  height: 300px;
+  width: 600px;
+  display: grid;
+  background-color: var(--main-grey);
 }
 
-.leftControl, .rightControl {
-    background-color: var(--main-white);
-    border-radius: 45px;
-    height: 90px;
-    width: 90px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 5px;
+/* CONTROLS */
+.controls-container {
+  display: flex;
+  flex-direction: row;
 }
-
+.left-control,
+.right-control {
+  background-color: var(--main-white);
+  border-radius: 45px;
+  height: 90px;
+  width: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /* device is 800px - 90px*2 each control - 5px*2 outermargin = 610 so /2 = 305px margin in between */
-.leftControl {
-    margin-right:305px;
+.left-control {
+  margin-right: 300px;
+}
+.right-control {
+  margin-left: 300px;
 }
 
-.rightControl {
-    margin-left: 305px;
+/* SKETCH CONTROLS */
+.sketch-controls {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-radius: 20px;
+  padding: 10px;
+  place-items: center;
+  gap: 0.5rem;
+  background-color: var(main--white);
+  max-width: 800px;
+  margin: auto;
+  padding: 5px;
+}
+
+.color-picker {
+  all: unset;
+  width: 80px;
+  height: 80px;
+  outline: 6px solid var(--main-gold);
+  outline-offset: -5px;
+  border-radius: 50%;
+  box-shadow: 0 0 20px hsla(0, 0%, 0%, 0.6);
+  overflow: hidden;
+  grid-row: 1 / span 2;
+}
+
+.color-picker:hover {
+  box-shadow: 0 0 20px hsla(0, 0%, 0%, 0.8);
+  transform: scale(1.02);
+}
+
+.color-picker:active {
+  box-shadow: 0 0 20px hsla(0, 0%, 0%, 0.6);
+  transform: scale(1);
+}
+
+.btn {
+  width: 150px;
+  height: 50px;
+  border: 0px solid #d3d3d3;
+  border-radius: 30px;
+  box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.5);
+  background-color: var(--main-white);
+  font-family: "Indie Flower", cursive;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--main-gold);
+}
+
+.btn:hover {
+  box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.7);
+  transform: scale(1.02);
+}
+
+.btn:active {
+  box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.5);
+  transform: scale(1);
+}
+
+.slider-label {
+  grid-column: 2 / span 3;
+  font-weight: bold;
+}
+
+.slider {
+  -webkit-appearance: none; /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: var(--main-white); /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+  transition: opacity 0.2s;
+  grid-column: 2 / span 3;
+  border-radius: 50px;
+  box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.5);
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: var(--main-gold); /* Green background */
+  cursor: pointer; /* Cursor on hover */
+  border-radius: 50%;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: var(--main-gold); /* Green background */
+  cursor: pointer; /* Cursor on hover */
+  border-radius: 50%;
 }

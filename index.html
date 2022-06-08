@@ -1,32 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Etch A Sketch</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="device">
-        <div class="header">
-            <h1>Etch A Sketch</h1>
-        </div>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-        <div class="gridContainer">
-            
-        </div>
+  <body>
+    <div class="etch-a-sketch-device">
+      <section class="device-name">Etch A Sketch</section>
 
-        <div class="controlsContainer">
-            <div class="leftControl">
-                SIZE
-            </div>
-            <div class="rightControl">
-                COLOR    
-            </div>
-        </div>
+      <section class="grid-container">
+        <section class="sketch-grid" id="sketch-grid"></section>
+      </section>
+
+      <section class="controls-container">
+        <div class="left-control"></div>
+        <div class="right-control"></div>
+      </section>
     </div>
-    
-</body>
-<script src="script.js"></script>
-</html> 
+
+    <section class="sketch-controls">
+      <input
+        type="color"
+        id="color-picker"
+        name="color-picker"
+        class="color-picker"
+        value="#eaca90"
+      />
+      <label for="grid-size" class="slider-label"
+        >Grid Size: <span id="slider-label">0</span> x
+        <span id="slider-label">0</span>
+      </label>
+      <input
+        type="range"
+        id="grid-size"
+        name="grid-size"
+        min="4"
+        max="50"
+        value="16"
+        class="slider"
+      />
+      <button type="button" id="btn-color" class="btn">Color</button>
+      <button type="button" id="btn-eraser" class="btn">Eraser</button>
+      <button type="button" id="btn-rainbow" class="btn">Rainbow</button>
+      <button type="button" id="btn-clear" class="btn">Clear</button>
+    </section>
+  </body>
+  <script src="script.js"></script>
+</html>
