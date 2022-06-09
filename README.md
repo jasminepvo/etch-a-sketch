@@ -1,5 +1,7 @@
 # Etch A Sketch - [Play Here](https://jasminepvo.github.io/etch-a-sketch/)
 
+### DEMO: https://user-images.githubusercontent.com/99847030/172738555-ebfaf806-23f0-48c5-a63b-53ce391fb32e.mov
+
 The inspiration for this comes from the original Magic Etch A Sketch Screen![inspo](https://user-images.githubusercontent.com/99847030/172062283-dd325cec-4701-4872-b708-7cb121c267e6.jpeg)
 
 ### See the creation:  
